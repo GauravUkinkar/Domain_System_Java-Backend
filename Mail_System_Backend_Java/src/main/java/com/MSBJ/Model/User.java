@@ -6,11 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 @Data
 @ToString
 @Entity
-public class Users {
+@Accessors(chain=true)
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

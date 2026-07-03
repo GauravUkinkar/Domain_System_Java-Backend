@@ -1,5 +1,11 @@
 package com.MSBJ.Mapper;
 
-public class UserMapper {
+import com.MSBJ.Dto.UserDto;
+import com.MSBJ.Model.User;
+
+public interface UserMapper {
+	public UserDto toUserDto(User user);
+	public User toUser(UserDto userDto);
+	
 
 }
