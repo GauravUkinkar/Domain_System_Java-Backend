@@ -43,13 +43,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-   <dependency>
-    <groupId>com.vladmihalcea</groupId>
-    <artifactId>hibernate-types-60</artifactId> <!-- Update version for Hibernate 6.x -->
-    <version>2.21.1</version>
-</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-oauth2-client</artifactId>
