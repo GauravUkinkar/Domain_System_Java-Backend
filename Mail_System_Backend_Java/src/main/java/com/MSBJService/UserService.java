@@ -7,6 +7,7 @@ import com.MSBJ.Dto.UserDto;
 public interface UserService {
 	
 	public Message<UserDto>login(LoginRequestDto request);
+	public Message<UserDto>registerUser(UserDto request);
 
 	
 

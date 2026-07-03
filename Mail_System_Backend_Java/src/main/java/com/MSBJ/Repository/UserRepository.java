@@ -12,6 +12,7 @@ import com.MSBJ.Model.User;
 @Repository
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-	User getByUsernameAndPassword(String username , String password);
+	User findByEmail(String email);
+	
 
 }
