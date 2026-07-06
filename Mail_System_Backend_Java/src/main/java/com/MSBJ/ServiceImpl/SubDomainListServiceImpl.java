@@ -1,5 +1,7 @@
 package com.MSBJ.ServiceImpl;
 
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -61,22 +63,75 @@ public class SubDomainListServiceImpl implements SubDomainListService {
 				response.setResponseMessage(Constants.SUBDOMAIN_NOT_FOUND);
 				return response;
 			}
+			SubDomainListDto dto = new SubDomainListDto();
+			response.setStatus(HttpStatus.OK);
+			response.setResponseMessage(Constants.SUBDOMAIN_FETCH_SUCESSFULLY);
+			response.setData(dto);
+			return response;
 		} catch (Exception e) {
-			// TODO: handle exception
+			response.setStatus(HttpStatus.OK);
+			response.setResponseMessage("Error:" +e.getMessage());
+			return response;
 		}
-		return null;
 	}
 
 	@Override
 	public Message<SubDomainListDto> editSubdomain(SubDomainListDto request) {
-		// TODO Auto-generated method stub
-		return null;
+		Message<SubDomainListDto> response = new Message<>();
+		 try {
+			
+			 if (request == null || request.getId() == 0) {
+				 response.setStatus(HttpStatus.BAD_REQUEST);
+				 response.setResponseMessage(Constants.INVALID_INPUT_DATA);
+				 return response;
+				
+			}
+			 Subdomain_List subdomainList = subDomainListRepository.getById(request.getId());
+			 
+			 if (subdomainList == null) {
+				response.setStatus(HttpStatus.NOT_FOUND);
+				response.setResponseMessage(Constants.SUBDOMAIN_NOT_FOUND);
+				return response;
+			}
+			 subDomainListRepository.save(subdomainList);
+			 SubDomainListDto dto = subDomainMapper.tosubDomainListDto(subdomainList);
+			 
+			 response.setStatus(HttpStatus.OK);
+			 response.setResponseMessage(Constants.SUBDOMAIN_UPDATED_SUCESSFULLY);	
+			 response.setData(dto);
+			 return response; 
+			 	 
+		} catch (Exception e) {
+			response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			response.setResponseMessage("error:" +e.getMessage());
+			return response;					
+		}
+		
 	}
 
 	@Override
 	public Message<SubDomainListDto> deleteSubdomain(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Message<SubDomainListDto> response = new Message<>();
+		
+		try {
+			Optional<Subdomain_List> subdomainList = subDomainListRepository.findById(id);
+			
+			if (!subdomainList.isPresent()) {
+				response.setStatus(HttpStatus.NOT_FOUND);
+				response.setResponseMessage(Constants.SUBDOMAIN_NOT_FOUND);
+				return response;
+			}
+			
+			subDomainListRepository.deleteById(id);
+			
+			response.setStatus(HttpStatus.OK);
+			response.setResponseMessage(Constants.SUBDOMAIN_DELETED_SUCESSFULLY);
+			return response;
+		} catch (Exception e) {
+			response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			response.setResponseMessage("error:"+e.getMessage());
+			return response;
+		}
 	}
 
 }
