@@ -2,10 +2,6 @@ package com.MSBJ.Util;
 
 public interface Constants {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/GauravUkinkar/Domain_System_Java-Backend.git
 	String RECORD_NOT_FOUND = "Record Not Found";
 	String INVALID_INPUT_DATA = "Invalid Input Data";
 	String SUBDOMAIN_ADDED_SUCESSFULLY = "Subdomain Added Sucessfully";
@@ -17,12 +13,7 @@ public interface Constants {
 	String SOMETHING_WENT_WRONG = "Something went Wrong";
 	String REGISTRATION_SUCCESSFULL = "Registration Successfull";
 	String INTERNAL_SERVER_ERROR = "Internal Server Error";
-<<<<<<< HEAD
 	String SUBDOMAIN_FETCH_SUCESSFULLY = "Subdomain Fetch Sucessfully";
 	String SUBDOMAIN_UPDATED_SUCESSFULLY = "Subdomain Updated Sucessfully";
-	String SUBDOMAIN_DELETED_SUCESSFULLY = "Subdomain Deleted Sucessfully";;;
-=======
->>>>>>> branch 'master' of https://github.com/GauravUkinkar/Domain_System_Java-Backend.git
-
-
+	String SUBDOMAIN_DELETED_SUCESSFULLY = "Subdomain Deleted Sucessfully";
 }
