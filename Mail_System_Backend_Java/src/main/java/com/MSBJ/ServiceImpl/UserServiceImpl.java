@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	public Message<UserDto> login(LoginRequestDto request) {
 		Message<UserDto> message = new Message<>();
 		try {
-			User user=userRepository.findByEmail(request.getUsername());
+			User user=userRepository.findByUsername(request.getUsername());
 			if(user!=null) {
 				if(user.getPassword().equals(request.getPassword())) {
 					message.setData(userMapper.toUserDto(user));
