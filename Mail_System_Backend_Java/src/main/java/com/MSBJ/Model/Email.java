@@ -6,20 +6,23 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 @Data
 @ToString
 @Entity
-public class Website_Login {
+@Accessors(chain=true)
+public class Email {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String email;
 	private int domainId;
-	private String websiteUrl;
-	private String websitePlatfrom;
 	private String username;
 	private String password;
+	private String platform;
+	private String status;
 	private String createdAt;
-
+	private String primaryTag;
 
 }

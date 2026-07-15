@@ -6,15 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 @Data 
 @ToString
 @Entity
+@Accessors(chain=true)
 public class Domain_Details {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String Domain;
+	private String domain;
 	private String purchasePlatform;
 	private String purchaseDate;
 	private String expiryDate;

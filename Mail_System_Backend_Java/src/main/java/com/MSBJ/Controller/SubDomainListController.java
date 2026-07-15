@@ -28,7 +28,7 @@ public class SubDomainListController {
 	private final SubDomainListServiceImpl subDomainListServiceImpl;
 	
 	@PostMapping("/addSubdomain")
-	public ResponseEntity<Message<SubDomainListDto>> addEmployee(@RequestBody SubDomainListDto request){
+	public ResponseEntity<Message<SubDomainListDto>> addSubdomain(@RequestBody SubDomainListDto request){
 		log.info("In controller add Subdomain() with request: {}", request);
 		Message<SubDomainListDto> response = subDomainListServiceImpl.addSubdomain(request);
 		return new ResponseEntity<Message<SubDomainListDto>>(response, response.getStatus());
